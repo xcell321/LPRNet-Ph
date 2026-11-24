@@ -1,8 +1,8 @@
 # Weights
 
-The trained Philippine model weights (`PH_LPRNet_model.pth`, 1.34 MB) are not stored in this folder yet — binary files are added to this repository separately from the code.
+This folder contains the trained Philippine model weights: `PH_LPRNet_model.pth` (1.34 MB, trained November 25, 2026 — see `results/TEST_REPORT.md` for its verified accuracy).
 
-To generate the weights yourself:
+To regenerate the weights yourself:
 
 ```bash
 python gen_ph_plates.py

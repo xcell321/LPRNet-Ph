@@ -53,7 +53,7 @@ Notes:
 
 - LPRNet reads a **tight plate crop**, not a full photo. `test_real_plate.py` takes `--crop X1 Y1 X2 Y2` (relative coordinates) when the photo shows the whole vehicle.
 - To train on real plates instead, replace `ph_data/train/` with labeled photos — the filename is the ground truth (e.g. `ABC1234.jpg`).
-- The trained weights file is not yet in this repo (binary files are added separately); running `train_ph.py` regenerates it.
+- The trained weights are included at `weights/PH_LPRNet_model.pth`; running `train_ph.py` regenerates them.
 
 ## Privacy note
 
