@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+ph_data/
+real_plate_crop.jpg
+.venv/
+venv/
