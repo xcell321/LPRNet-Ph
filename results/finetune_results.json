@@ -1,0 +1,219 @@
+{
+  "train_labels": [
+    "2236NG",
+    "7G2",
+    "958RWF",
+    "ABV1463",
+    "AGA1625",
+    "AKA1023",
+    "CBC2080",
+    "CBN8658",
+    "CBT2794",
+    "CCK6781",
+    "CDK2649",
+    "DA93600",
+    "EVN729",
+    "GXK980",
+    "MAV6198",
+    "NDA8962",
+    "NOW8263",
+    "RFR888",
+    "SAB1812",
+    "TGM803",
+    "W6358P",
+    "ZGE470",
+    "ZMC445"
+  ],
+  "test_labels": [
+    "NGP3944",
+    "CAX3200",
+    "DAR7662",
+    "SND2569",
+    "ZKY932",
+    "SEE665",
+    "YCR238",
+    "DNW1509",
+    "888RJZ",
+    "CVR846"
+  ],
+  "supp_labels": [
+    "0561000",
+    "XLS887",
+    "AA5490"
+  ],
+  "baseline": {
+    "accuracy": 0.0,
+    "results": {
+      "NGP3944": {
+        "true": "NGP3944",
+        "pred": "A3444",
+        "exact": false,
+        "condition": "current private, STANDING TEST"
+      },
+      "CAX3200": {
+        "true": "CAX3200",
+        "pred": "AX326",
+        "exact": false,
+        "condition": "current private"
+      },
+      "DAR7662": {
+        "true": "DAR7662",
+        "pred": "2442",
+        "exact": false,
+        "condition": "current private"
+      },
+      "SND2569": {
+        "true": "SND2569",
+        "pred": "XXXX7",
+        "exact": false,
+        "condition": "current government"
+      },
+      "ZKY932": {
+        "true": "ZKY932",
+        "pred": "ZKI832",
+        "exact": false,
+        "condition": "2014 private ABC123"
+      },
+      "SEE665": {
+        "true": "SEE665",
+        "pred": "T2",
+        "exact": false,
+        "condition": "1981 government, worn/dirty"
+      },
+      "YCR238": {
+        "true": "YCR238",
+        "pred": "XXX2",
+        "exact": false,
+        "condition": "1981 private"
+      },
+      "DNW1509": {
+        "true": "DNW1509",
+        "pred": "MM4609",
+        "exact": false,
+        "condition": "current EV"
+      },
+      "888RJZ": {
+        "true": "888RJZ",
+        "pred": "88ARLZ",
+        "exact": false,
+        "condition": "current motorcycle"
+      },
+      "CVR846": {
+        "true": "CVR846",
+        "pred": "KN444",
+        "exact": false,
+        "condition": "current PUV"
+      }
+    },
+    "supp_results": {
+      "0561000": {
+        "true": "0561000",
+        "pred": "T",
+        "exact": false,
+        "condition": "diplomatic (blue), on-vehicle angled, SUPPLEMENTARY TEST"
+      },
+      "XLS887": {
+        "true": "XLS887",
+        "pred": "TG",
+        "exact": false,
+        "condition": "1981-series private, on-vehicle angled, SUPPLEMENTARY TEST"
+      },
+      "AA5490": {
+        "true": "AA5490",
+        "pred": "",
+        "exact": false,
+        "condition": "old motorcycle, SEVERELY DAMAGED (torn, holed, rusty), SUPPLEMENTARY TEST"
+      }
+    }
+  },
+  "finetuned": {
+    "accuracy": 0.2,
+    "results": {
+      "NGP3944": {
+        "true": "NGP3944",
+        "pred": "G3944",
+        "exact": false,
+        "condition": "current private, STANDING TEST"
+      },
+      "CAX3200": {
+        "true": "CAX3200",
+        "pred": "CAX3200",
+        "exact": true,
+        "condition": "current private"
+      },
+      "DAR7662": {
+        "true": "DAR7662",
+        "pred": "GAR72662",
+        "exact": false,
+        "condition": "current private"
+      },
+      "SND2569": {
+        "true": "SND2569",
+        "pred": "SA2569",
+        "exact": false,
+        "condition": "current government"
+      },
+      "ZKY932": {
+        "true": "ZKY932",
+        "pred": "ZKY8932",
+        "exact": false,
+        "condition": "2014 private ABC123"
+      },
+      "SEE665": {
+        "true": "SEE665",
+        "pred": "S32229",
+        "exact": false,
+        "condition": "1981 government, worn/dirty"
+      },
+      "YCR238": {
+        "true": "YCR238",
+        "pred": "XCX238",
+        "exact": false,
+        "condition": "1981 private"
+      },
+      "DNW1509": {
+        "true": "DNW1509",
+        "pred": "DNW1509",
+        "exact": true,
+        "condition": "current EV"
+      },
+      "888RJZ": {
+        "true": "888RJZ",
+        "pred": "888R1Z",
+        "exact": false,
+        "condition": "current motorcycle"
+      },
+      "CVR846": {
+        "true": "CVR846",
+        "pred": "QR846",
+        "exact": false,
+        "condition": "current PUV"
+      }
+    },
+    "supp_results": {
+      "0561000": {
+        "true": "0561000",
+        "pred": "G0",
+        "exact": false,
+        "condition": "diplomatic (blue), on-vehicle angled, SUPPLEMENTARY TEST"
+      },
+      "XLS887": {
+        "true": "XLS887",
+        "pred": "",
+        "exact": false,
+        "condition": "1981-series private, on-vehicle angled, SUPPLEMENTARY TEST"
+      },
+      "AA5490": {
+        "true": "AA5490",
+        "pred": "N10",
+        "exact": false,
+        "condition": "old motorcycle, SEVERELY DAMAGED (torn, holed, rusty), SUPPLEMENTARY TEST"
+      }
+    }
+  },
+  "epochs": 60,
+  "real_copies_per_epoch": 25,
+  "synthetic_replay_per_epoch": 300,
+  "weights_out": "/home/hatch/workspace/lprnet-test/LPRNet_PH/weights/PH_LPRNet_finetuned_real.pth",
+  "elapsed_sec": 1973.1
+}

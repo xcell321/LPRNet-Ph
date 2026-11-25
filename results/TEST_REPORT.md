@@ -57,3 +57,16 @@ The testing used **synthetic plates only** plus one plate photo provided by Edsi
 1. Collect real PH plate photos (with permission) across conditions — clean, dirty, old green, faded, angled, night — and label them.
 2. Retrain/fine-tune LPRNet on the real dataset and re-measure accuracy, precision, recall, and speed per condition.
 3. Compare against the team's other two models (YOLO-based pipeline and the OCR model) using the same test set.
+
+## 8. Fine-tuning on real Philippine plates (2026-11-25)
+
+Dataset: 36 labeled plate instances from real, openly licensed photos (Wikimedia Commons; CC-licensed Flickr via Openverse). Fixed split: 23 train / 10 held-out test / 3 supplementary test (diplomatic, angled, severely damaged). Method: 60 epochs, Adam lr 1e-4, CTC loss, real crops augmented 25x/epoch (rotation, brightness/contrast, blur, noise) + 300-image synthetic replay per epoch. Scripts: `prep_crops.py`, `finetune_real.py`; raw results: `results/finetune_results.json`.
+
+| Metric (10 held-out real plates) | Synthetic-only weights | Fine-tuned on real data |
+|---|---|---|
+| Exact-match accuracy | 0/10 (0%) | 2/10 (20%) |
+| Character similarity (1 - Levenshtein/length) | 0.31 | 0.73 |
+
+Per-plate: CAX3200 and DNW1509 read exactly after fine-tuning; several others are one character away (NGP3944 -> G3944, 888RJZ -> 888R1Z, CVR846 -> QR846). Supplementary conditions (diplomatic 0561000, angled XLS887, severely damaged AA5490) still fail under both weight sets. End-to-end on a full photo (NGP 3944, automatic detection + reading): 0304 -> P3944.
+
+Interpretation: synthetic-only training does not transfer to real plates (synthetic font differs from the LTO FE-Schrift typeface). Fine-tuning on a small real dataset (23 plates) improves recognition substantially but is not deployment-grade; training loss ~0.002 indicates memorization of the small training set, so the held-out figures are the honest measure. More real photos across conditions — especially locally photographed plates — are the limiting factor.
